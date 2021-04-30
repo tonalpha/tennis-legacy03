@@ -12,13 +12,39 @@ import java.util.Scanner;
 public class RunTennis {
 	
 	public static void main(String[] args) {
-		RunTennis ins = null;
+		Tennis tennis = null;
 		try {
-			ins = new RunTennis();
-			
 			print("main() Begin");
 			
+			tennis = new Tennis();
+			tennis.beginMatch();
+			tennis.updateScore(false);
+			tennis.updateScore(true);
+			tennis.updateScore(true);
+			tennis.updateScore(true);
+			tennis.updateScore(true);
 			
+			tennis.beginMatch();
+			tennis.updateScore(false);
+			tennis.updateScore(true);
+			tennis.updateScore(true);
+			tennis.updateScore(true);
+			tennis.updateScore(false);
+			tennis.updateScore(false);
+			tennis.updateScore(false);
+			tennis.updateScore(true);
+			tennis.updateScore(true);
+			tennis.updateScore(true);
+			//after finish game
+			tennis.updateScore(true);
+			tennis.updateScore(false);
+			
+			tennis.beginMatch();
+			tennis.updateScore(false);
+			tennis.updateScore(false);
+			tennis.updateScore(false);
+			tennis.updateScore(true);		
+			tennis.updateScore(false);
 			
 		} finally {
 			print("main() End");
@@ -29,7 +55,7 @@ public class RunTennis {
 		System.out.println(msg);
 	}
 	
-    public static void runningCommand() {
+    public void runningCommand() {
         int choice = -1;
         Tennis tennis = null;
         try {
@@ -53,28 +79,24 @@ public class RunTennis {
                     	
                     	tennis.beginMatch();
                     	
-                    	print("CurrentScore=" + tennis.currentScore());
-                    	print("CallingScore=" + tennis.currentScoreName());
+//                    	print("CurrentScore=" + tennis.currentScore());
+//                    	print("CallingScore=" + tennis.currentScoreName());
                     	
                         break;
                     case 2:
-                    	tennis = new Tennis();
-                    	
                     	Scanner input1 = new Scanner(System.in);
                     	
-                    	System.out.println("1=Player1 scoring or other for Player2 scoring");
+                    	System.out.println("input 1=Player1 scoring or other for Player2 scoring");
                     	
                     	int choice1 = input.nextInt();
                     	
                     	if (choice1 == 1) {
-                    		
+                    		tennis.updateScore(true);
                     	} else {
-                    		
+                    		tennis.updateScore(false);
                     	}
-//                    	tennis.updateScore(player1Score, player2Score);
                     	
-                    	print("CurrentScore=" + tennis.currentScore());
-                    	print("CallingScore=" + tennis.currentScoreName());
+//                    	print("CurrentScore=>> " + tennis.currentScore());
                     	
                         break;                        
                     default:
